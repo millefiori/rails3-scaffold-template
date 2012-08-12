@@ -1,0 +1,27 @@
+<h1>Listing <%= plural_table_name %></h1>
+
+<table>
+  <tr>
+<% attributes.each do |attribute| -%>
+    <th><%= attribute.human_name %></th>
+<% end -%>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<%% @list.each do |x| %>
+  <tr>
+<% attributes.each do |attribute| -%>
+    <td><%%= x.<%= attribute.name %> %></td>
+<% end -%>
+    <td><%%= link_to 'Show', x %></td>
+    <td><%%= link_to 'Edit', edit_<%= singular_table_name %>_path(x) %></td>
+    <td><%%= link_to 'Destroy', x, <%= key_value :confirm, "'Are you sure?'" %>, <%= key_value :method, ":delete" %> %></td>
+  </tr>
+<%% end %>
+</table>
+
+<br />
+
+<%%= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path %>

@@ -1,0 +1,23 @@
+%h1 Listing <%= plural_table_name %>
+
+%table
+  %tr
+<% for attribute in attributes -%>
+    %th <%= attribute.human_name %>
+<% end -%>
+    %th
+    %th
+    %th
+
+  - @list.each do |x|
+    %tr
+<% for attribute in attributes -%>
+      %td= x.<%= attribute.name %>
+<% end -%>
+      %td= link_to 'Show', x
+      %td= link_to 'Edit', edit_<%= singular_table_name %>_path(x)
+      %td= link_to 'Destroy', x, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path
