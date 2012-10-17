@@ -6,8 +6,8 @@ require_dependency "<%= namespaced_file_path %>/application_controller"
 <% module_namespacing do -%>
 class <%= class_name %>Controller < BaseController
 <% actions.each do |action| -%>
-  def <%= action %>
-  end
+	def <%= action %>
+	end
 <%= "\n" unless action == actions.last -%>
 <% end -%>
 end

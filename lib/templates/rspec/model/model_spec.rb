@@ -22,6 +22,7 @@ describe <%= class_name %> do
 			subject { <%= class_name %>.make(<%= attribute.name %>: nil) }
 			it { should be_valid }
 		end
+<%= "\n" unless attribute == attributes.last -%>
 <% end -%>
 	end
 
