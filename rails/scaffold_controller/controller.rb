@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 <% if namespaced? -%>
 require_dependency "<%= namespaced_file_path %>/application_controller"
-<% end -%>
 
+<% end -%>
 <% module_namespacing do -%>
 class <%= controller_class_name %>Controller < BaseController
 	before_filter :load_object, :only=>[ :show, :edit, :update, :destroy ]
@@ -21,7 +21,7 @@ class <%= controller_class_name %>Controller < BaseController
 	# GET <%= route_url %>
 	# GET <%= route_url %>.json
 	def index
-		@list = <%= orm_class.all(class_name) %>
+		@list = <%= class_name %>.scoped
 	end
 
 	# GET <%= route_url %>/1
